@@ -1,0 +1,132 @@
+/* aDOGtame – CSS3 puro, mobile-first.
+   Contrastes calculados:
+   azul #163a7a sobre blanco ........ 10.9:1
+   azul #163a7a sobre menta #41bfbc .. 4.9:1
+   negro #000000 sobre menta ......... 9.4:1
+   menta sobre blanco ................ 2.2:1 -> NO se usa para texto ni como único borde de controles. */
+
+:root {
+  --azul: #163a7a;
+  --blanco: #ffffff;
+  --menta: #41bfbc;
+  --ancho: 40rem;
+  --margen: max(1.25rem, calc((100% - var(--ancho)) / 2));
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { font-size: 100%; }
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+body {
+  margin: 0;
+  background: var(--blanco);
+  color: var(--azul);
+  font-family: Verdana, Tahoma, "Segoe UI", system-ui, sans-serif;
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.5;
+}
+
+h1, h2, h3 { line-height: 1.2; margin: 0 0 .75rem; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.625rem; }
+h3 { font-size: 1.5rem; }
+p  { margin: 0 0 1rem; }
+ul { list-style: none; margin: 0; padding: 0; }
+
+/* Contenedor fluido centrado */
+header, main, footer { padding-inline: var(--margen); }
+section { padding-block: 1.5rem; scroll-margin-top: 1rem; }
+
+/* ---------- Foco visible (mínimo 3px, alto contraste) ---------- */
+:focus { outline: 4px solid var(--azul); outline-offset: 3px; }
+:focus:not(:focus-visible) { outline: none; }
+:focus-visible { outline: 4px solid var(--azul); outline-offset: 3px; }
+
+/* ---------- Enlace para saltar ---------- */
+.saltar {
+  position: absolute; left: 1rem; top: -6rem;
+  padding: .75rem 1rem; min-height: 3rem;
+  background: var(--blanco); color: var(--azul);
+  border: 3px solid var(--azul); font-weight: 700;
+}
+.saltar:focus { top: 1rem; z-index: 10; }
+
+/* ---------- <header> y <nav> ---------- */
+header {
+  padding-block: 1rem 1.25rem;
+  border-bottom: 6px solid var(--menta);
+}
+.logo { margin: 0 0 .75rem; font-size: 1.75rem; font-weight: 800; }
+nav ul { display: flex; flex-wrap: wrap; gap: 1rem; }
+nav a {
+  display: flex; align-items: center; justify-content: center;
+  min-height: 3rem; min-width: 3rem; padding: .5rem 1.25rem;
+  border: 3px solid var(--azul); border-radius: 1rem;
+  color: var(--azul); background: var(--blanco);
+  font-size: 1.125rem; font-weight: 700; text-decoration: none;
+}
+
+/* ---------- Botones (enlaces y <button>) ---------- */
+.btn {
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; min-height: 3.5rem; padding: .75rem 1.25rem;
+  border: 3px solid var(--azul); border-radius: 1rem;
+  background: var(--azul); color: var(--blanco);
+  font: 700 1.25rem/1.25 inherit; font-family: inherit;
+  text-align: center; text-decoration: none; cursor: pointer;
+}
+.btn--grande { min-height: 4.5rem; font-size: 1.375rem; }
+.btn--claro  { background: var(--blanco); color: var(--azul); }
+
+@media (hover: hover) {
+  .btn:hover { background: var(--menta); color: var(--azul); }
+  nav a:hover { background: var(--menta); }
+}
+
+/* ---------- Bienvenida ---------- */
+#bienvenida { padding-top: 2rem; }
+#bienvenida .btn { margin-top: 1.5rem; }
+
+/* ---------- Catálogo ---------- */
+.tarjeta {
+  padding: 1.25rem;
+  border: 3px solid var(--azul); border-top: 12px solid var(--menta);
+  border-radius: 1rem;
+}
+.foto {
+  display: flex; align-items: center; justify-content: center;
+  aspect-ratio: 4 / 3; margin-bottom: 1rem;
+  background: var(--menta); border: 3px solid var(--azul); border-radius: .75rem;
+  font-size: 5rem;
+}
+.tarjeta .btn { margin-top: 1.25rem; }
+
+/* ---------- Formulario ---------- */
+.campo { margin-bottom: 1.75rem; }
+label { display: block; margin-bottom: .5rem; font-size: 1.25rem; font-weight: 700; }
+input {
+  display: block; width: 100%; min-height: 3.5rem; padding: .5rem 1rem;
+  border: 3px solid var(--azul); border-radius: .75rem;
+  background: var(--blanco); color: var(--azul);
+  font: inherit; font-size: 1.25rem;
+}
+input::placeholder { color: var(--azul); opacity: .75; } /* ≈5.4:1 */
+.ayuda { margin: .5rem 0 0; }
+form .btn { margin-top: 2rem; }
+
+/* ---------- <footer> ---------- */
+footer {
+  margin-top: 1.5rem; padding-block: 2rem 2.5rem;
+  background: var(--menta); color: var(--azul);
+}
+footer ul { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 1.5rem; }
+
+/* ---------- Pantallas más anchas ---------- */
+@media (min-width: 40rem) {
+  h1 { font-size: 2.5rem; }
+  footer ul { flex-direction: row; }
+}

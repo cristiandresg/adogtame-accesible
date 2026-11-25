@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>aDOGtame – Adopta a tu nuevo amigo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <!-- Boceto: <header> con logo y <nav> [Inicio] [Mascotas] -->
+  <header id="inicio">
+    <p class="logo"><span aria-hidden="true">🐾</span> aDOGtame</p>
+    <nav aria-label="Principal">
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#catalogo">Mascotas</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido">
+
+    <!-- Boceto: <section> Bienvenida con botón "Ver animalitos" -->
+    <section id="bienvenida" aria-labelledby="t-bienvenida">
+      <h1 id="t-bienvenida">Encuentra a tu nuevo amigo</h1>
+      <p>Adopta rápido, sin trámites largos.</p>
+      <a class="btn btn--grande" href="#catalogo">Ver animalitos disponibles</a>
+    </section>
+
+    <!-- Boceto: <section> Catálogo con <article> [foto] Firulais [Adoptar] -->
+    <section id="catalogo" aria-labelledby="t-catalogo">
+      <h2 id="t-catalogo">Animalitos disponibles</h2>
+      <article class="tarjeta" aria-labelledby="n-firulais">
+        <!-- Reemplazar por: <img src="firulais.jpg" alt="Firulais, perro mediano de pelaje café"> -->
+        <div class="foto" role="img" aria-label="Foto de Firulais (espacio reservado)">🐕</div>
+        <h3 id="n-firulais">Firulais</h3>
+        <p>Perro mediano, adulto. Se lleva bien con niños.</p>
+        <a class="btn" href="#solicitud">Adoptar a Firulais</a>
+      </article>
+    </section>
+
+    <!-- Añadido a pedido: formulario corto de 3 campos -->
+    <section id="solicitud" aria-labelledby="t-solicitud">
+      <h2 id="t-solicitud">Solicitud rápida de adopción</h2>
+      <p>Solo 3 datos. Te respondemos el mismo día.</p>
+      <!-- Cambiar action por la dirección real del servidor -->
+      <form action="/adopcion" method="post">
+        <div class="campo">
+          <label for="nombre">Nombre</label>
+          <input id="nombre" name="nombre" type="text" autocomplete="name" required>
+        </div>
+        <div class="campo">
+          <label for="telefono">Teléfono</label>
+          <input id="telefono" name="telefono" type="tel" inputmode="tel" autocomplete="tel"
+                 required pattern="[0-9 ]{7,15}" title="Escribe solo números, por ejemplo 0999 999 999"
+                 placeholder="0999 999 999" aria-describedby="ayuda-tel">
+          <p id="ayuda-tel" class="ayuda">Solo números.</p>
+        </div>
+        <div class="campo">
+          <label for="mascota">Mascota</label>
+          <input id="mascota" name="mascota" type="text" value="Firulais" required aria-describedby="ayuda-mascota">
+          <p id="ayuda-mascota" class="ayuda">Puedes cambiar el nombre si quieres otro animalito.</p>
+        </div>
+        <button class="btn btn--grande" type="submit">Enviar solicitud</button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- Boceto: <footer> Horarios y contacto -->
+  <footer id="contacto">
+    <h2>Horarios y contacto</h2>
+    <p><strong>Horarios:</strong> lunes a sábado, de 9:00 a 17:00. Domingo cerrado.</p>
+    <ul>
+      <li><a class="btn btn--claro" href="tel:+0000000000"><span aria-hidden="true">📞</span>&nbsp;Llamar por teléfono</a></li>
+      <li><a class="btn btn--claro" href="https://wa.me/0000000000"><span aria-hidden="true">💬</span>&nbsp;Escribir por WhatsApp</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>
